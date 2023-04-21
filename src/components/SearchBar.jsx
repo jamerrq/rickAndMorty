@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 const containerStyle = {
     display: "flex",
     justifyContent: "center",
@@ -19,15 +21,37 @@ const searchStyle = {
 const aggButtonStyle = {
     border: "1px solid grey",
     height: "30px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    margin: "2px"
 }
 
 export default function SearchBar(props) {
+    const [id, setId] = useState("");
+    const handleChange = (e) => {
+        const newValue = e.target.value;
+        setId(newValue);
+    }
+    const myOwnSearch = function () {
+        props.onSearch(id);
+    }
+    const randomSearch = function () {
+        const max = 826;
+        const char = Math.floor(Math.random() * max);
+        props.onSearch(char);
+    }
     return (
         <div style={containerStyle}>
-            <input type='search' style={searchStyle} />
-            <button onClick={props.onSearch} style={aggButtonStyle}>
+            <input
+                type='search'
+                style={searchStyle}
+                value={id}
+                onChange={handleChange}
+            />
+            <button onClick={myOwnSearch} style={aggButtonStyle}>
                 Agregar
+            </button>
+            <button onClick={randomSearch} style={aggButtonStyle}>
+                Random
             </button>
         </div>
     );

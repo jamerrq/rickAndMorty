@@ -1,24 +1,67 @@
 import './App.css';
 import Cards from './components/Cards.jsx';
-import SearchBar from './components/SearchBar.jsx';
-import characters, { Rick } from './data.js';
+import Nav from './components/Nav';
+import axios from 'axios';
+import { useState } from 'react';
 
-document.body.style.backgroundImage = `url(https://t4.ftcdn.net/jpg/00/59/95/89/360_F_59958917_1SvEPqvKnrGr68THJ35hqQUiHwQ6WhCN.jpg)`;
+
+const backgroundUrlImage = 'https://i.redd.it/x86cg7onkyua1.jpg';
+document.body.style.backgroundImage = `url(${backgroundUrlImage})`;
 document.body.style.backgroundAttachment = 'fixed';
+
 
 const appStyle = {
     display: 'flex',
-    flexDirection: 'column-reverse',
+    flexDirection: 'column',
     padding: "10px"
 }
 
+const example = {
+    id: 1,
+    name: 'Rick Sanchez',
+    status: 'Alive',
+    species: 'Human',
+    gender: 'Male',
+    origin: {
+        name: 'Earth (C-137)',
+        url: 'https://rickandmortyapi.com/api/location/1',
+    },
+    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+};
+
 function App() {
+
+    const [characters, setCharacters] = useState([]);
+
+    function onSearch(id) {
+        const url = `https://rickandmortyapi.com/api/character/${id}`;
+        axios(url).then(({ data }) => {
+            if (data.name) {
+                let isRepeated = characters.reduce((acc, c) => {
+                    return acc || c.id === data.id
+                }, false);
+                if (isRepeated) {
+                    window.alert('¡Este personaje ya está agregado!');
+                    return;
+                }
+                setCharacters((oldChars) => [...oldChars, data]);
+            } else {
+                window.alert('¡No hay personajes con este ID!');
+            }
+        });
+    }
+
+    function onClose(id) {
+        setCharacters((oldChars) => oldChars.filter((c) => c.id !== id));
+    }
+
     return (
         <div className='App' style={appStyle}>
-            <SearchBar onSearch={(characterID) => window.alert(characterID)} />
-            <Cards characters={characters} />
+            <Nav onSearch={onSearch} />
+            <Cards characters={characters} onClose={onClose} />
         </div>
     );
+
 }
 
 export default App;

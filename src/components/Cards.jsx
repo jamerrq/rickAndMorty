@@ -1,4 +1,4 @@
-import Card from './Card';
+import Card from './Card.jsx';
 import React from 'react';
 
 const cardsStyle = {
@@ -7,9 +7,6 @@ const cardsStyle = {
 }
 
 class Cards extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
@@ -24,7 +21,7 @@ class Cards extends React.Component {
                         gender={element.gender}
                         origin={element.origin.name}
                         image={element.image}
-                        onClose={() => window.alert('Emulamos que se cierra la card')} />
+                        onClose={this.props.onClose} />
                 )}
             </div>
         )

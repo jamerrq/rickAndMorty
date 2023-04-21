@@ -1,16 +1,24 @@
 import React from "react";
 
-const cardStyle = {
-    backgroundColor: "#F2BA02",
-    display: "flex",
-    flexDirection: "column",
-    width: "30%",
-    margin: "5px",
-    alignItems: "center",
-    marginBottom: "10px",
-    borderRadius: "10px",
-    padding: "5px",
-    fontSize: "11px",
+function style(gender) {
+    let bgColor = "#FF6969";
+    if (gender == "Male") {
+        bgColor = "#A6D0DD";
+    } else if (gender != "Female") {
+        bgColor = "#FFD3B0";
+    }
+    return {
+        backgroundColor: bgColor,
+        display: "flex",
+        flexDirection: "column",
+        width: "30%",
+        margin: "15px",
+        alignItems: "center",
+        marginBottom: "10px",
+        borderRadius: "10px",
+        padding: "5px",
+        fontSize: "11px",
+    }
 }
 
 const imgStyle = {
@@ -25,15 +33,25 @@ const buttonStyle = {
     left: "55px",
     borderWidth: "1px",
     color: "red",
-    borderRadius: "8px"
+    borderRadius: "8px",
 }
 
 class Card extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.closeCard = this.closeCard.bind(this);
+    }
+
+    closeCard() {
+        this.props.onClose(this.props.id);
+    }
+
     render() {
+        const cardStyle = style(this.props.gender);
         return (
             <div style={cardStyle}>
-                <button onClick={this.props.onClose}
+                <button onClick={this.closeCard}
                     style={buttonStyle}>X</button>
                 <img src={this.props.image}
                     alt={this.props.name} style={imgStyle} />
