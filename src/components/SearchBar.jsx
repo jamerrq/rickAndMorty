@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { NavLink } from "react-router-dom"
+
 
 const containerStyle = {
     display: "flex",
@@ -51,8 +53,15 @@ export default function SearchBar(props) {
                 Agregar
             </button>
             <button onClick={randomSearch} style={aggButtonStyle}>
-                Random
+                🎲
             </button>
+            <span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+            <NavLink to="/">
+                <button style={aggButtonStyle}>HOME 🏘</button>
+            </NavLink>
+            <NavLink to="/about">
+                <button style={aggButtonStyle}>ABOUT ME 🐧</button>
+            </NavLink>
         </div>
     );
 }

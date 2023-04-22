@@ -1,15 +1,18 @@
 import Card from './Card.jsx';
 import React from 'react';
 
+
 const cardsStyle = {
     display: "flex",
     flexDirection: "row",
+    justifyContent: "center",
 }
 
 class Cards extends React.Component {
 
     render() {
         return (
+
             <div style={cardsStyle}>
                 {this.props.characters.map(element =>
                     <Card

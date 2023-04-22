@@ -1,17 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 function style(gender) {
     let bgColor = "#FF6969";
-    if (gender == "Male") {
+    if (gender === "Male") {
         bgColor = "#A6D0DD";
-    } else if (gender != "Female") {
+    } else if (gender === "App Creator") {
+        bgColor = "#F97B22";
+
+    } else if (gender !== "Female") {
         bgColor = "#FFD3B0";
     }
     return {
         backgroundColor: bgColor,
         display: "flex",
         flexDirection: "column",
-        width: "30%",
+        width: "250px",
         margin: "15px",
         alignItems: "center",
         marginBottom: "10px",
@@ -55,7 +60,9 @@ class Card extends React.Component {
                     style={buttonStyle}>X</button>
                 <img src={this.props.image}
                     alt={this.props.name} style={imgStyle} />
-                <h2>Name: {this.props.name}</h2>
+                <Link to={`/detail/${this.props.id}`}>
+                    <h2>Name: {this.props.name}</h2>
+                </Link>
                 <h2>Status: {this.props.status}</h2>
                 <h2>Species: {this.props.species}</h2>
                 <h2>Gender: {this.props.gender}</h2>

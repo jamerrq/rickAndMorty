@@ -1,13 +1,17 @@
 import './App.css';
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
+import About from './components/About';
+import Detail from './components/Detail';
 import axios from 'axios';
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 
 const backgroundUrlImage = 'https://i.redd.it/x86cg7onkyua1.jpg';
 document.body.style.backgroundImage = `url(${backgroundUrlImage})`;
 document.body.style.backgroundAttachment = 'fixed';
+document.body.style.backgroundPosition = 'center';
 
 
 const appStyle = {
@@ -15,19 +19,6 @@ const appStyle = {
     flexDirection: 'column',
     padding: "10px"
 }
-
-const example = {
-    id: 1,
-    name: 'Rick Sanchez',
-    status: 'Alive',
-    species: 'Human',
-    gender: 'Male',
-    origin: {
-        name: 'Earth (C-137)',
-        url: 'https://rickandmortyapi.com/api/location/1',
-    },
-    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
-};
 
 function App() {
 
@@ -58,7 +49,24 @@ function App() {
     return (
         <div className='App' style={appStyle}>
             <Nav onSearch={onSearch} />
-            <Cards characters={characters} onClose={onClose} />
+            <Routes>
+                <Route
+                    path='/'
+                    element={<Cards characters={characters}
+                        onClose={onClose} />}
+                >
+                </Route>
+                <Route
+                    path='/about'
+                    element={<About />}
+                >
+                </Route>
+                <Route
+                    path='/detail/:id'
+                    element={<Detail />}
+                >
+                </Route>
+            </Routes>
         </div>
     );
 

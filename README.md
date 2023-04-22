@@ -1,5 +1,5 @@
-### App snap (until Apr 21, 2023)
-![desktop app](./imgs/app_desktopv2.0.png)
+### App snap (until Apr 22, 2023)
+![desktop app](./imgs/out.gif)
 
 # Getting Started with Create React App
 
