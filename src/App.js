@@ -1,11 +1,14 @@
 import './App.css';
+
 import Cards from './components/Cards.jsx';
 import Nav from './components/Nav';
 import About from './components/About';
 import Detail from './components/Detail';
+import Form from './components/Form';
+
 import axios from 'axios';
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
 
 const backgroundUrlImage = 'https://i.redd.it/x86cg7onkyua1.jpg';
@@ -23,6 +26,21 @@ const appStyle = {
 function App() {
 
     const [characters, setCharacters] = useState([]);
+    const location = useLocation();
+    const [access, setAccess] = useState(false);
+    const email = "jamerrq@gmail.com", password = "henry123";
+    const navigate = useNavigate();
+
+    function login(userData) {
+        if (userData.email === email && userData.password == password) {
+            setAccess(true);
+            navigate("/home");
+        }
+    }
+
+    useEffect(() => {
+        !access && navigate('/');
+    }, [access]);
 
     function onSearch(id) {
         const url = `https://rickandmortyapi.com/api/character/${id}`;
@@ -46,12 +64,24 @@ function App() {
         setCharacters((oldChars) => oldChars.filter((c) => c.id !== id));
     }
 
+    function logOut() {
+        console.log("IN");
+        setAccess(false);
+        navigate("/");
+    }
+
     return (
         <div className='App' style={appStyle}>
-            <Nav onSearch={onSearch} />
+            {!(location.pathname === "/") && <Nav onSearch={onSearch}
+                logOutFunction={logOut} />}
             <Routes>
                 <Route
-                    path='/'
+                    path="/"
+                    element={<Form loginFunction={login} />}
+                >
+                </Route>
+                <Route
+                    path='/home'
                     element={<Cards characters={characters}
                         onClose={onClose} />}
                 >

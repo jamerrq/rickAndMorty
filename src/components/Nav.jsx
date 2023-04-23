@@ -6,7 +6,9 @@ class Nav extends React.Component {
     render() {
         return (
             <div>
-                <SearchBar onSearch={this.props.onSearch}></SearchBar>
+                {/* {console.log(this.props.logOutFunction)} */}
+                <SearchBar onSearch={this.props.onSearch}
+                    logOutFunction={this.props.logOutFunction}></SearchBar>
             </div>
         )
     }

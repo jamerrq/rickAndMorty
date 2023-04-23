@@ -1,0 +1,63 @@
+.data {
+    width: 50%;
+    color: white;
+    font-size: 15px;
+}
+
+.pic {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    background-color: #95CD41;
+    border-radius: 5%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link:hover {
+    background-color: #088395;
+}
+
+.detail {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.favicon {
+    width: 16px;
+    height: 16px;
+}
+
+.linkContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ownImage {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: 8px solid #95CD41;
+}
+
+.ownImage:hover {
+    border: 8px solid #088395;
+}
+
+.aboutMeCard {
+    background-color: #E86A33;
+    opacity: 0.8;
+    border-radius: 15px;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 0px 5px 5px 5px;
+}

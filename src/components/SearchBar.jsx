@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 
 
 const containerStyle = {
@@ -24,7 +24,8 @@ const aggButtonStyle = {
     border: "1px solid grey",
     height: "30px",
     borderRadius: "5px",
-    margin: "2px"
+    margin: "2px",
+    fontFamily: "'Fira Sans'"
 }
 
 export default function SearchBar(props) {
@@ -50,18 +51,21 @@ export default function SearchBar(props) {
                 onChange={handleChange}
             />
             <button onClick={myOwnSearch} style={aggButtonStyle}>
-                Agregar
+                AGREGAR
             </button>
             <button onClick={randomSearch} style={aggButtonStyle}>
                 🎲
             </button>
+            <button style={aggButtonStyle}>🗑</button>
             <span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
-            <NavLink to="/">
+            <NavLink to="/home">
                 <button style={aggButtonStyle}>HOME 🏘</button>
             </NavLink>
             <NavLink to="/about">
                 <button style={aggButtonStyle}>ABOUT ME 🐧</button>
             </NavLink>
+            <button style={aggButtonStyle}
+                onClick={props.logOutFunction}>LOG OUT 🚪</button>
         </div>
     );
 }

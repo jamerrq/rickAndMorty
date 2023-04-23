@@ -1,6 +1,14 @@
 ### App snap (until Apr 22, 2023)
 ![desktop app](./imgs/out.gif)
 
+### Ideas por hacer
+- Agregar un campo input numérico para agregar varios personajes aleatorios a la
+  vez (por defecto en 5)
+- Agregar personajes según filtro en categorías
+- Mostrar número de personajes agregados
+- Hover para las tarjetas y mostrar info en la parte de atrás
+- Que el usuario elija la transparencia de sus tarjetas
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

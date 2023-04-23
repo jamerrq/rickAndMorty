@@ -3,35 +3,20 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 
-const dataStyle = {
-    width: "50%",
-    color: "white"
-}
-const picStyle = {
-    width: "50%",
-}
+require("./Detail.css")
 
-const detailStyle = {
-    display: "flex",
-    flexDirection: "row",
-    marginTop: "30px"
-}
-
-const aStyle = {
-    margin: "2px"
-}
 
 function imgStyle(gender) {
-    // console.log(gender);
     const imgStyle = {
         borderRadius: "50%",
+        width: "300px",
+        height: "300px"
     }
     if (gender === "App Creator") {
         imgStyle["border"] = "8px solid #95CD41";
     }
     return imgStyle;
 }
-
 
 function Detail() {
 
@@ -51,9 +36,19 @@ function Detail() {
                 image: imageUrl,
                 id: 0,
                 links: [
-                    ["GitHub", "https://github.com/jamerrq"],
-                    ["Lichess", "https://lichess.org/@/jamerrq"],
-                    ["Linkedin", "https://linkedin.com/in/jamerrq"]
+                    ["GitHub", "https://github.com/jamerrq",
+                        "https://cdn1.iconfinder.com/data/icons" +
+                        "/bootstrap-fill-vol-2/16/github-512.png"],
+                    ["Lichess", "https://lichess.org/@/jamerrq",
+                        "https://raw.githubusercontent.com/cxd4/" +
+                        "lichess/master/web/favicon.ico"],
+                    ["Linkedin", "https://linkedin.com/in/jamerrq",
+                        "https://cdn3.iconfinder.com/data/icons" +
+                        "/social-media-black-white-2/512" +
+                        "/BW_Linkedin_glyph_svg-512.png"],
+                    ["Twitter", "https://twitter.com/jamerrq",
+                        "https://cdn3.iconfinder.com/data/" +
+                        "icons/picons-social/57/43-twitter-512.png"]
                 ]
             };
             setCharacter(data);
@@ -74,8 +69,10 @@ function Detail() {
         'pregrados/ingenieria-matematica/Paginas/inicio.aspx';
 
     return (
-        <div style={detailStyle}>
-            <div style={dataStyle}>
+
+        <div className="detail">
+
+            <div className="data">
                 <h1>
                     {character?.name ?
                         character.name : "No information loaded yet!"}
@@ -100,32 +97,52 @@ function Detail() {
                         "Origin | " + character.origin.name :
                         "No information loaded yet!"}
                 </h2>
-                <h3>
-                    {character?.links ?
+
+                {
+                    character?.links ?
                         <>
                             <h2 style={{ color: "#F6D860" }}>LINKS</h2>
-                            {character.links.map(link =>
-                            (<a style={aStyle}
-                                href={link[1]}>{link[0]}</a>))}
-                            <h2 style={{ fontStyle: "italic" }}> Sobre mí: </h2>
-                            <h3 style={{ fontStyle: "italic" }}> Hola, mi
-                                nombre es Jamer José, soy
-                                <a href={programUrl}> Ingeniero
-                                    Matemático</a>  de la universidad EAFIT.
-                                Me gusta mucho la programación,
-                                el ajedrez y los gatos.</h3>
+                            <div className="linkContainer">
+                                {
+                                    character.links.map((link, index) =>
+                                    (
+                                        <div key={index} className="link" >
+                                            <a
+                                                href={link[1]}>
+                                                <img src={link[2]}
+                                                    alt=""
+                                                    className="favicon"></img>
+                                            </a>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                            <div className="aboutMeCard">
+                                <h2 style={{ fontStyle: "italic", padding: "2%" }}> Sobre mí: </h2>
+                                <h3 style={{ fontStyle: "italic", color: "black", padding: "0.9%" }}> Hola, mi
+                                    nombre es Jamer José, soy
+                                    <a href={programUrl}> Ingeniero
+                                        Matemático</a>  de la universidad EAFIT.
+                                    Me gusta mucho la programación,
+                                    el ajedrez y los gatos.</h3>
+                            </div>
                         </>
-                        : null}
-                </h3>
+                        : null
+                }
+
             </div>
-            <div style={picStyle}>
+
+            <div className="pic">
                 <img
-                    style={myImgStyle}
+                    style={!(character.id === 0) ? myImgStyle : null}
+                    className={(character.id === 0) ? "ownImage" : null}
                     src={character.image}
                     alt=""
                 />
             </div>
+
         </div >
+
     );
 
 }

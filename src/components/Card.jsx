@@ -23,6 +23,7 @@ function style(gender) {
         borderRadius: "10px",
         padding: "5px",
         fontSize: "11px",
+        fontFamily: "'Fira Sans'"
     }
 }
 
