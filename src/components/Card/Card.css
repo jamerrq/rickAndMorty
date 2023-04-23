@@ -1,0 +1,120 @@
+.card {
+    background-color: #FF7B54;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 11px;
+    font-family: 'Fira Sans';
+    border: 3px solid #7C9070;
+    opacity: 0.85;
+}
+
+.card img {
+    border: 3px solid #7C9070;
+}
+
+.card:hover {
+    border: 3px solid #FEE8B0;
+}
+
+.card img:hover {
+    border: 3px solid #FEE8B0;
+}
+
+.card.male {
+    background-color: #088395;
+    border: 3px solid #05BFDB;
+}
+
+.card.male:hover {
+    border: 3px solid #00FFCA;
+}
+
+.card.male img {
+    border: 3px solid #05BFDB;
+}
+
+.card.male img:hover {
+    border: 3px solid #00FFCA;
+}
+
+.card.female {
+    background-color: #917FB3;
+    border: 3px solid #E5BEEC;
+}
+
+.card.female:hover {
+    border: 3px solid #FDE2F3;
+}
+
+.card.female img {
+    border: 3px solid #E5BEEC;
+}
+
+.card.female img:hover {
+    border: 3px solid #FDE2F3;
+}
+
+.card.genderless {
+    background-color: #C7BCA1;
+    border: 3px solid #675D50;
+}
+
+.card.genderless:hover {
+    border: 3px solid #ABC4AA;
+}
+
+.card.genderless img {
+    border: 3px solid #675D50;
+}
+
+.card.genderless img:hover {
+    border: 3px solid #ABC4AA;
+}
+
+.card.app.creator {
+    background-color: #243763;
+    border: 3px solid #781D42;
+}
+
+.card.app.creator:hover {
+    border: 3px solid #F6D860;
+}
+
+.card.app.creator img {
+    border: 3px solid #781D42
+}
+
+.card.app.creator img:hover {
+    border: 3px solid #F6D860
+}
+
+.charImg {
+    width: 150px;
+    height: 150px;
+    border-radius: 10%;
+}
+
+.closeButton {
+    position: relative;
+    top: 28px;
+    left: 55px;
+    color: #F90716;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #EADEDE;
+    width: 20px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeButton:hover {
+    border: 1px solid #F90716;
+}

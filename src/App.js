@@ -1,27 +1,25 @@
+// CSS Properties
 import './App.css';
 
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav';
-import About from './components/About';
-import Detail from './components/Detail';
-import Form from './components/Form';
+// Components
+import Cards from './components/Cards/Cards';     // Individual cards
+import Nav from './components/Nav/Nav';           // Navigation Bar
+import About from './components/About/About';     // About page
+import Detail from './components/Detail/Detail';  // Individual details
+import Form from './components/Form/Form';        // Login form
+import NotFound from './components/NotFound/NotFound';
 
+// Hooks and other React Stuff
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 
-
+// Background wallpaper
 const backgroundUrlImage = 'https://i.redd.it/x86cg7onkyua1.jpg';
 document.body.style.backgroundImage = `url(${backgroundUrlImage})`;
 document.body.style.backgroundAttachment = 'fixed';
 document.body.style.backgroundPosition = 'center';
 
-
-const appStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: "10px"
-}
 
 function App() {
 
@@ -31,16 +29,20 @@ function App() {
     const email = "jamerrq@gmail.com", password = "henry123";
     const navigate = useNavigate();
 
+    // const [defaultCharacters, setDefaultCharacters] = useState([]);
+
     function login(userData) {
-        if (userData.email === email && userData.password == password) {
+        if (userData.email === email && userData.password === password) {
             setAccess(true);
             navigate("/home");
+        } else {
+            alert("Usuario o contraseña incorrectos!");
         }
     }
 
     useEffect(() => {
         !access && navigate('/');
-    }, [access]);
+    }, [access, navigate]);
 
     function onSearch(id) {
         const url = `https://rickandmortyapi.com/api/character/${id}`;
@@ -54,10 +56,19 @@ function App() {
                     return;
                 }
                 setCharacters((oldChars) => [...oldChars, data]);
+
             } else {
-                window.alert('¡No hay personajes con este ID!');
+                window.alert("¡No hay personajes con este id!");
             }
+        }).catch(() => {
+            window.alert('¡No hay personajes con este ID!');
         });
+    }
+
+    function loadDefaults() {
+        const defaultCharactersIds = [311, 49, 129, 826, 694];
+        setCharacters([]);
+        defaultCharactersIds.forEach(id => onSearch(id));
     }
 
     function onClose(id) {
@@ -65,15 +76,22 @@ function App() {
     }
 
     function logOut() {
-        console.log("IN");
         setAccess(false);
         navigate("/");
     }
 
+    function clearAllCharacters() {
+        setCharacters([]);
+    }
+
     return (
-        <div className='App' style={appStyle}>
-            {!(location.pathname === "/") && <Nav onSearch={onSearch}
-                logOutFunction={logOut} />}
+        <div className='App'>
+            {!(location.pathname === "/") &&
+                <Nav onSearch={onSearch}
+                    logOutFunction={logOut}
+                    clearAllFunction={clearAllCharacters}
+                    loadDefaultFn={loadDefaults}
+                />}
             <Routes>
                 <Route
                     path="/"
@@ -96,6 +114,7 @@ function App() {
                     element={<Detail />}
                 >
                 </Route>
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </div>
     );

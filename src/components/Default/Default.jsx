@@ -1,19 +1,12 @@
-import Card from './Card.jsx';
-import React from 'react';
+import Cards from "../Cards/Cards";
+import Card from "../Card/Card";
 
 
-const cardsStyle = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-}
-
-class Cards extends React.Component {
+class Default extends Cards {
 
     render() {
         return (
-
-            <div style={cardsStyle}>
+            <div className='cards'>
                 {this.props.characters.map(element =>
                     <Card
                         id={element.id}
@@ -24,11 +17,14 @@ class Cards extends React.Component {
                         gender={element.gender}
                         origin={element.origin.name}
                         image={element.image}
-                        onClose={this.props.onClose} />
+                        onClose={this.props.onClose}
+                    />
                 )}
             </div>
         )
     }
+
 }
 
-export default Cards;
+
+export default Default;

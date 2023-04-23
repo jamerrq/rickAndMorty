@@ -1,5 +1,5 @@
 import React from "react";
-import validate from '../validation';
+import validate from '../../validation';
 
 
 require('./Form.css');
