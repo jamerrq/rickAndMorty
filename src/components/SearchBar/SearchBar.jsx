@@ -54,17 +54,17 @@ export default function SearchBar(props) {
                 className="aggButton"
                 onClick={props.loadDefaultFn}
             >
-                🍁
+                🌈
             </button>
             <span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
             <NavLink to="/home">
-                <button className="aggButton">🏠</button>
+                <button className="aggButton navBar">🏠</button>
             </NavLink>
             <NavLink to="/about">
-                <button className="aggButton">ABOUT ME 🐧</button>
+                <button className="aggButton navBar">ABOUT ME</button>
             </NavLink>
-            <button className="aggButton"
-                onClick={props.logOutFunction}>LOG OUT 🚪</button>
+            <button className="aggButton navBar"
+                onClick={props.logOutFunction}> LOG OUT🚪</button>
         </div>
     );
 

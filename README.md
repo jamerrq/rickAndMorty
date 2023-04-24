@@ -1,13 +1,22 @@
-### App snap (until Apr 22, 2023)
-![desktop app](./imgs/out.gif)
+### App snap (until Apr 24, 2023)
+![desktop app](./imgs/out2.gif)
 
-### Ideas por hacer
-- Agregar un campo input numérico para agregar varios personajes aleatorios a la
-  vez (por defecto en 5)
-- Agregar personajes según filtro en categorías
-- Mostrar número de personajes agregados
-- Hover para las tarjetas y mostrar info en la parte de atrás
-- Que el usuario elija la transparencia de sus tarjetas
+### RICK & MORTY APP CHANGELOG
+
+- DETAIL PAGE         | [ ]
+- ADD N RANDOMS       | [ ]
+- FILTERS GADGET      | [ ]
+- STATISTICS PAGE     | [ ]
+- RANDOM REPEATED BUG | [ ]
+- 404 COMPONENT       | [ ]
+- BUGS REPORT PAGE    | [ ]
+- CLEAR BUTTON        | [X]
+- CREATE CSS FILES PC | [X]
+- HOVERS & HOVERS!    | [X]
+- DEFAULT CHARACTERS  | [X]
+- IMAGE BORDERS       | [X]
+- LINK INTO IMAGE     | [X]
+
 
 # Getting Started with Create React App
 

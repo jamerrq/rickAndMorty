@@ -40,15 +40,16 @@ function Detail() {
                         "https://cdn1.iconfinder.com/data/icons" +
                         "/bootstrap-fill-vol-2/16/github-512.png"],
                     ["Lichess", "https://lichess.org/@/jamerrq",
-                        "https://raw.githubusercontent.com/cxd4/" +
-                        "lichess/master/web/favicon.ico"],
+                        "https://static-00.iconduck.com/assets.00/lichess-icon-512x512-q0oh5bwk.png"],
                     ["Linkedin", "https://linkedin.com/in/jamerrq",
                         "https://cdn3.iconfinder.com/data/icons" +
                         "/social-media-black-white-2/512" +
                         "/BW_Linkedin_glyph_svg-512.png"],
                     ["Twitter", "https://twitter.com/jamerrq",
                         "https://cdn3.iconfinder.com/data/" +
-                        "icons/picons-social/57/43-twitter-512.png"]
+                        "icons/picons-social/57/43-twitter-512.png"],
+                    ["Codeforces", "https://codeforces.com/profile/jamerrq",
+                        "https://static-00.iconduck.com/assets.00/codeforces-icon-512x385-dylx8a2r.png"]
                 ]
             };
             setCharacter(data);
@@ -106,14 +107,14 @@ function Detail() {
                                 {
                                     character.links.map((link, index) =>
                                     (
-                                        <div key={index} className="link" >
-                                            <a
-                                                href={link[1]}>
+                                        <a href={link[1]}>
+                                            <div key={index} className="link" >
                                                 <img src={link[2]}
                                                     alt=""
                                                     className="favicon"></img>
-                                            </a>
-                                        </div>
+
+                                            </div>
+                                        </a>
                                     ))
                                 }
                             </div>

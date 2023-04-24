@@ -17,7 +17,7 @@
     margin-right: 2px;
     font-family: 'Fira Sans';
     text-align: center;
-    background-color: rgb(202, 220, 240);
+    background-color: #FEF2F4;
 }
 
 .aggButton {
@@ -26,5 +26,14 @@
     border-radius: 5px;
     margin: 2px;
     font-family: 'Fira Sans';
-    background-color: #EADCA6;
+    background-color: #EDC6B1;
+    border: 1px solid black;
+}
+
+.aggButton:hover {
+    border: 1px solid white;
+}
+
+.aggButton.navBar {
+    background-color: #7C96AB;
 }
