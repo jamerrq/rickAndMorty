@@ -26,13 +26,13 @@ function App() {
     const [characters, setCharacters] = useState([]);
     const location = useLocation();
     const [access, setAccess] = useState(false);
-    const email = "jamerrq@gmail.com", password = "henry123";
+    const email = "jamerrq@henry.com", _password = "henry123";
     const navigate = useNavigate();
 
     // const [defaultCharacters, setDefaultCharacters] = useState([]);
 
     function login(userData) {
-        if (userData.email === email && userData.password === password) {
+        if (userData.email === email && userData.password === _password) {
             setAccess(true);
             navigate("/home");
         } else {

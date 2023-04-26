@@ -18,6 +18,7 @@
     font-family: 'Fira Sans';
     text-align: center;
     background-color: #FEF2F4;
+    font-weight: bold;
 }
 
 .aggButton {
@@ -28,6 +29,8 @@
     font-family: 'Fira Sans';
     background-color: #EDC6B1;
     border: 1px solid black;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .aggButton:hover {
@@ -36,4 +39,5 @@
 
 .aggButton.navBar {
     background-color: #7C96AB;
+    height: 35px;
 }

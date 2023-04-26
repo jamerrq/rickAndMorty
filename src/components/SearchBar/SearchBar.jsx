@@ -34,37 +34,40 @@ export default function SearchBar(props) {
             <button
                 onClick={myOwnSearch}
                 className="aggButton"
+                title="Add character"
             >
-                AGREGAR
+                <i class='fas fa-plus'></i>
             </button>
+            <span>&emsp;&emsp;</span>
             <button
                 onClick={randomSearch}
                 className="aggButton"
             >
-                🎲
+                <i class='fas fa-dice-five'></i>
             </button>
             <button
                 className="aggButton"
                 onClick={props.clearAllFunction}
             >
-                🗑
+                <i class='fas fa-trash'></i>
             </button>
 
             <button
                 className="aggButton"
                 onClick={props.loadDefaultFn}
+                title="Add random character"
             >
                 🌈
             </button>
-            <span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+            <span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
             <NavLink to="/home">
-                <button className="aggButton navBar">🏠</button>
+                <button className="aggButton navBar"><i class='fas fa-home	'></i></button>
             </NavLink>
             <NavLink to="/about">
                 <button className="aggButton navBar">ABOUT ME</button>
             </NavLink>
             <button className="aggButton navBar"
-                onClick={props.logOutFunction}> LOG OUT🚪</button>
+                onClick={props.logOutFunction}> LOG OUT <i class='fas fa-door-open'></i></button>
         </div>
     );
 

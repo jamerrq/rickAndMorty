@@ -27,7 +27,7 @@ class Form extends React.Component {
 
         let newState = {
             ...this.state,
-            ["userData"]: {
+            "userData": {
                 ...this.state.userData,
                 [e.target.name]: e.target.value,
             },
@@ -35,10 +35,11 @@ class Form extends React.Component {
 
         this.setState(newState);
 
-        let [numErrors, errors] = validate(newState.userData);
+        let errors = validate(newState.userData);
+
         this.setState({
             ...newState,
-            ["errors"]: errors
+            "errors": errors
         });
 
     }
