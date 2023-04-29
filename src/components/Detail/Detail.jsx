@@ -89,7 +89,7 @@ function Detail() {
 
                 {character?.origin && (
                     <div className="leftAndRight lastRow">
-                        <h2 className={"left " + character.gender}>SPECIES</h2>
+                        <h2 className={"left " + character.gender}>ORIGIN</h2>
                         <h2 className={"right " + character.gender}>{character.origin.name}</h2>
                     </div>
                 )}
