@@ -44,3 +44,8 @@ form p {
     text-shadow: none;
     font-family: 'Fira Sans';
 }
+
+
+form img {
+    height: 50px;
+}

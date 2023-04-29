@@ -1,21 +1,27 @@
-### App snap (until Apr 24, 2023)
-![desktop app](./imgs/out2.gif)
+### App snap (until Apr 28, 2023)
+![desktop app](./imgs/out3.gif)
 
 ### RICK & MORTY APP CHANGELOG
 
-- DETAIL PAGE         | [ ]
+- DETAIL PAGE         | [X]
+- STAR AS FAV         | [X]
 - ADD N RANDOMS       | [ ]
 - FILTERS GADGET      | [ ]
 - STATISTICS PAGE     | [ ]
 - RANDOM REPEATED BUG | [ ]
 - 404 COMPONENT       | [ ]
 - BUGS REPORT PAGE    | [ ]
+- CARD DISPENSER ++++ | [ ]
+- PIN CARD BUTTON     | [ ]
+- FIX COLORS (USE CH) | [X]
+- FLIPPING CARDS      | [X]
 - CLEAR BUTTON        | [X]
 - CREATE CSS FILES PC | [X]
 - HOVERS & HOVERS!    | [X]
 - DEFAULT CHARACTERS  | [X]
 - IMAGE BORDERS       | [X]
 - LINK INTO IMAGE     | [X]
+
 
 
 # Getting Started with Create React App

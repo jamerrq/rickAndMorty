@@ -36,38 +36,60 @@ export default function SearchBar(props) {
                 className="aggButton"
                 title="Add character"
             >
-                <i class='fas fa-plus'></i>
+                <i className='fas fa-plus'></i>
             </button>
             <span>&emsp;&emsp;</span>
             <button
+                title="Add random character"
                 onClick={randomSearch}
                 className="aggButton"
             >
-                <i class='fas fa-dice-five'></i>
+                <i className='fas fa-dice-five'></i>
             </button>
             <button
+                title="Remove all characters"
                 className="aggButton"
                 onClick={props.clearAllFunction}
             >
-                <i class='fas fa-trash'></i>
+                <i className='fas fa-trash'></i>
             </button>
 
             <button
                 className="aggButton"
                 onClick={props.loadDefaultFn}
-                title="Add random character"
+                title="Load default view"
             >
                 🌈
             </button>
-            <span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+            <span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+            <img className="rmLogo" src="logorm.png" alt="logoRM" />
+            <span>&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+            <NavLink to="/favorites">
+                <button
+                    className="aggButton navBar"
+                    title="View favorites"
+                >
+                    <i className='fas fa-star'></i>
+                </button>
+            </NavLink>
             <NavLink to="/home">
-                <button className="aggButton navBar"><i class='fas fa-home	'></i></button>
+                <button
+                    className="aggButton navBar"
+                    title="Home page"
+                >
+                    <i className='fas fa-home'></i>
+                </button>
             </NavLink>
             <NavLink to="/about">
                 <button className="aggButton navBar">ABOUT ME</button>
             </NavLink>
-            <button className="aggButton navBar"
-                onClick={props.logOutFunction}> LOG OUT <i class='fas fa-door-open'></i></button>
+            <button
+                className="aggButton navBar"
+                onClick={props.logOutFunction}
+                title="Log out"
+            >
+                <i className='fas fa-door-open'></i>
+            </button>
         </div>
     );
 

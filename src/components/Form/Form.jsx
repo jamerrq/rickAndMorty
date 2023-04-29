@@ -1,7 +1,6 @@
 import React from "react";
 import validate from '../../validation';
 
-
 require('./Form.css');
 
 
@@ -53,6 +52,7 @@ class Form extends React.Component {
         return (
             <div className="formContainer">
                 <form onSubmit={this.handleSubmit}>
+                    <img className="rmLogo" src="logorm.png" alt="logoRM" />
                     <label htmlFor="emailInput">EMAIL</label>
                     <input
                         type="text"

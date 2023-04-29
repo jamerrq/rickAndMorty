@@ -2,23 +2,18 @@
 import './App.css';
 
 // Components
-import Cards from './components/Cards/Cards';     // Individual cards
-import Nav from './components/Nav/Nav';           // Navigation Bar
-import About from './components/About/About';     // About page
-import Detail from './components/Detail/Detail';  // Individual details
-import Form from './components/Form/Form';        // Login form
-import NotFound from './components/NotFound/NotFound';
+import Cards from './components/Cards/Cards';             // Individual cards
+import Nav from './components/Nav/Nav';                   // Navigation Bar
+import About from './components/About/About';             // About page
+import Detail from './components/Detail/Detail';          // Individual details
+import Form from './components/Form/Form';                // Login form
+import NotFound from './components/NotFound/NotFound';    // 404 Component
+import Favorites from './components/Favorites/Favorites'; // Favorites component
 
 // Hooks and other React Stuff
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-
-// Background wallpaper
-const backgroundUrlImage = 'https://i.redd.it/x86cg7onkyua1.jpg';
-document.body.style.backgroundImage = `url(${backgroundUrlImage})`;
-document.body.style.backgroundAttachment = 'fixed';
-document.body.style.backgroundPosition = 'center';
 
 
 function App() {
@@ -112,6 +107,11 @@ function App() {
                 <Route
                     path='/detail/:id'
                     element={<Detail />}
+                >
+                </Route>
+                <Route
+                    path='/favorites'
+                    element={<Favorites />}
                 >
                 </Route>
                 <Route path="*" element={<NotFound />} />

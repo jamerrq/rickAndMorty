@@ -6,18 +6,6 @@ import { useParams } from "react-router-dom";
 require("./Detail.css")
 
 
-function imgStyle(gender) {
-    const imgStyle = {
-        borderRadius: "50%",
-        width: "300px",
-        height: "300px"
-    }
-    if (gender === "App Creator") {
-        imgStyle["border"] = "8px solid #95CD41";
-    }
-    return imgStyle;
-}
-
 function Detail() {
 
     const { id } = useParams();
@@ -65,7 +53,6 @@ function Detail() {
         return; //setCharacter({});
     }, [id, imageUrl]);
 
-    const myImgStyle = imgStyle(character.gender);
     const programUrl = 'https://www.eafit.edu.co/programas-academicos/' +
         'pregrados/ingenieria-matematica/Paginas/inicio.aspx';
 
@@ -74,35 +61,43 @@ function Detail() {
         <div className="detail">
 
             <div className="data">
-                <h1>
+                <h1 class={"header " + character.gender}>
                     {character?.name ?
-                        character.name : "No information loaded yet!"}
+                        <p className={"name " + character.gender}>{character.name}</p> : "No information loaded yet!"}
                 </h1>
-                <h2>
-                    {character?.status ?
-                        "Status | " + character.status :
-                        "No information loaded yet!"}
-                </h2>
-                <h2>
-                    {character?.species ?
-                        "Species | " + character.species :
-                        "No information loaded yet!"}
-                </h2>
-                <h2>
-                    {character?.gender ?
-                        "Gender | " + character.gender :
-                        "No information loaded yet!"}
-                </h2>
-                <h2>
-                    {character?.origin?.name ?
-                        "Origin | " + character.origin.name :
-                        "No information loaded yet!"}
-                </h2>
+
+                {character?.status && (
+                    <div className="leftAndRight">
+                        <h2 className={"left " + character.gender}>STATUS</h2>
+                        <h2 className={"right " + character.gender}>{character.status}</h2>
+                    </div>
+                )}
+
+                {character?.species && (
+                    <div className="leftAndRight">
+                        <h2 className={"left " + character.gender}>SPECIES</h2>
+                        <h2 className={"right " + character.gender}>{character.species}</h2>
+                    </div>
+                )}
+
+                {character?.gender && (
+                    <div className="leftAndRight">
+                        <h2 className={"left " + character.gender}>GENDER</h2>
+                        <h2 className={"right " + character.gender}>{character.gender}</h2>
+                    </div>
+                )}
+
+                {character?.origin && (
+                    <div className="leftAndRight lastRow">
+                        <h2 className={"left " + character.gender}>SPECIES</h2>
+                        <h2 className={"right " + character.gender}>{character.origin.name}</h2>
+                    </div>
+                )}
 
                 {
                     character?.links ?
                         <>
-                            <h2 style={{ color: "#F6D860" }}>LINKS</h2>
+                            <h2 style={{ color: "black" }}>LINKS</h2>
                             <div className="linkContainer">
                                 {
                                     character.links.map((link, index) =>
@@ -119,7 +114,7 @@ function Detail() {
                                 }
                             </div>
                             <div className="aboutMeCard">
-                                <h2 style={{ fontStyle: "italic", padding: "2%" }}> Sobre mí: </h2>
+                                <h2 style={{ fontStyle: "italic", padding: "2%", color: "black" }}> Sobre mí: </h2>
                                 <h3 style={{ fontStyle: "italic", color: "black", padding: "0.9%" }}> Hola, mi
                                     nombre es Jamer José, soy
                                     <a href={programUrl}> Ingeniero
@@ -133,10 +128,9 @@ function Detail() {
 
             </div>
 
-            <div className="pic">
+            <div className={"pic " + character?.gender}>
                 <img
-                    style={!(character.id === 0) ? myImgStyle : null}
-                    className={(character.id === 0) ? "ownImage" : null}
+                    className={"characterPic " + character?.gender}
                     src={character.image}
                     alt=""
                 />
