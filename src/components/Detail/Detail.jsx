@@ -61,7 +61,7 @@ function Detail() {
         <div className="detail">
 
             <div className="data">
-                <h1 class={"header " + character.gender}>
+                <h1 className={"header " + character.gender}>
                     {character?.name ?
                         <p className={"name " + character.gender}>{character.name}</p> : "No information loaded yet!"}
                 </h1>
@@ -102,12 +102,12 @@ function Detail() {
                                 {
                                     character.links.map((link, index) =>
                                     (
-                                        <a href={link[1]}>
+                                        <a href={link[1]} key={index}>
                                             <div key={index} className="link" >
                                                 <img src={link[2]}
                                                     alt=""
-                                                    className="favicon"></img>
-
+                                                    className="favicon">
+                                                </img>
                                             </div>
                                         </a>
                                     ))
